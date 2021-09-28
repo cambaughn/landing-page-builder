@@ -11,14 +11,19 @@ export default function PageBuilder({}) {
 
   const getSections = async () => {
     let sectionsForUser = [];
-    dispatch(setSections(sectionsForUser));
+    updateSections(sectionsForUser);
+  }
+
+  const updateSections = (updatedSections) => {
+    dispatch(setSections(updatedSections));
+
   }
 
   useEffect(getSections, []);
 
   return (
     <div className={styles.container}>
-      <Sidebar sections={sections} />
+      <Sidebar sections={sections} updateSections={updateSections} />
       <Sections sections={sections} />
     </div>
   )
