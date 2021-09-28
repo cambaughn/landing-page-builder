@@ -19,7 +19,7 @@ export default function PageBuilder({}) {
 
   }
 
-  useEffect(getSections, []);
+  // useEffect(getSections, []);
 
   return (
     <div className={styles.container}>

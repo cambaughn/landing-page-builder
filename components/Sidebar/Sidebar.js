@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Sidebar.module.scss';
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
-import arrayMove from 'array-move';
+import { arrayMove } from 'react-sortable-hoc';
 import SortableSectionList from '../SortableSectionList/SortableSectionList';
 
 
@@ -14,7 +13,7 @@ export default function Sidebar({ sections, updateSections }) {
   return (
     <div className={styles.container}>
       <h2>Sections</h2>
-      <SortableSectionList sections={sections} />
+      <SortableSectionList sections={sections} onSortEnd={onSortEnd} />
     </div>
   )
 }

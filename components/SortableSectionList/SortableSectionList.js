@@ -5,13 +5,13 @@ import { SortableContainer } from 'react-sortable-hoc';
 
 const SortableSectionList = SortableContainer(({ sections }) => {
   return (
-    <div className={styles.container}>
+    <ul className={styles.container}>
       { sections.map((section, index) => {
         return (
-          <SortableListItem section={section} key={index} />
+          <SortableListItem section={section} number={index + 1} index={index} key={index} />
         )
       })}
-    </div>
+    </ul>
   )
 })
 
