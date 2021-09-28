@@ -12,8 +12,10 @@ export default function Sidebar({ sections, updateSections }) {
 
   return (
     <div className={styles.container}>
-      <h2>Sections</h2>
-      <SortableSectionList sections={sections} onSortEnd={onSortEnd} />
+      <div className={styles.mainContent}>
+        <h2>Sections</h2>
+        <SortableSectionList sections={sections} onSortEnd={onSortEnd} />
+      </div>
     </div>
   )
 }
