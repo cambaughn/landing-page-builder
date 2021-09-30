@@ -7,9 +7,11 @@ import SectionEditor from '../SectionEditor/SectionEditor';
 
 export default function Sidebar({ sections, updateSections }) {
   const editingSection = useSelector(state => state.editingSection);
+  const course = useSelector(state => state.course);
 
-  const onSortEnd = ({oldIndex, newIndex}) => {
-    updateSections(arrayMove(sections, oldIndex, newIndex));
+  const onSortEnd = ({ oldIndex, newIndex }) => {
+    let updatedSections = arrayMove(sections, oldIndex, newIndex);
+    updateSections(updatedSections);
   }
 
   return (

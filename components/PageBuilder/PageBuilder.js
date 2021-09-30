@@ -5,7 +5,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import Sections from '../Sections/Sections';
 import { setSections, setUser, setCourse } from '../../redux/actionCreators';
 import { getUser } from '../../util/api/user';
-import { getCourse } from '../../util/api/course';
+import { getCourse, updateCourse } from '../../util/api/course';
 import { getSections } from '../../util/api/section';
 
 // Base component for the entire page
@@ -39,6 +39,7 @@ export default function PageBuilder({}) {
 
   const updateSections = (updatedSections) => {
     dispatch(setSections(updatedSections));
+    updateCourse(course.id, { sections: updatedSections.map(section => section.id) });
   }
 
   useEffect(getUserInfo, []);
