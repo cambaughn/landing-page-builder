@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './PageBuilder.module.scss';
 import Sidebar from '../Sidebar/Sidebar';
 import Sections from '../Sections/Sections';
-import { setSections, setUser } from '../../redux/actionCreators';
+import { setSections, setUser, setCourse } from '../../redux/actionCreators';
 import { getUser } from '../../util/api/user';
+import { getCourse } from '../../util/api/course';
 
 // Base component for the entire page
 // Handles data retrieval from the database for the user, course, and sections
@@ -15,9 +16,18 @@ export default function PageBuilder({}) {
   const dispatch = useDispatch();
   
   const getUserInfo = async () => {
+    // Hard-coding test_user_1 for the prototype. Would enable login for individual users for production.
     let userFromDatabase = await getUser('test_user_1');
-    console.log(userFromDatabase);
     dispatch(setUser(userFromDatabase));
+  }  
+
+  const getCourseInfo = async () => {
+    // Only utilizing the first course that the user has. In future, could provide ability to switch between courses in the courses array.
+    if (!!user.id && user.courses[0]) {
+      let courseFromDatabase = await getCourse(user.courses[0]);
+      console.log('course ', course);
+      dispatch(setCourse(courseFromDatabase));
+    }
   }
 
   const getSections = async () => {
@@ -30,7 +40,8 @@ export default function PageBuilder({}) {
   }
 
   useEffect(getUserInfo, []);
-  // useEffect(getSections, []);
+  useEffect(getCourseInfo, [user]);
+  // useEffect(getSections, [course]);
 
   return (
     <div className={styles.container}>
