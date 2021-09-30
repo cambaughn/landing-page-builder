@@ -16,7 +16,6 @@ export default function PageBuilder({}) {
 
   const updateSections = (updatedSections) => {
     dispatch(setSections(updatedSections));
-
   }
 
   // useEffect(getSections, []);

@@ -1,12 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SortableListItem.module.scss';
-import { SortableElement } from 'react-sortable-hoc';
+import { SortableElement, SortableHandle } from 'react-sortable-hoc';
+import { MoreVertical } from 'react-feather';
+import { useDispatch } from 'react-redux';
+import { setEditingSection } from '../../redux/actionCreators';
+
 
 const SortableListItem = SortableElement(({ section, number }) => {
+  const dispatch = useDispatch();
+  let DragHandle;
+  DragHandle = SortableHandle(() => (
+    <div className={styles.dragHandle}>
+      <MoreVertical className={styles.moreIcon} />
+      <MoreVertical className={styles.moreIcon} />
+    </div>
+  ));
+
+  const editSection = () => {
+    dispatch(setEditingSection(section.id));
+  }
+
   return (
-    <div className={styles.container}>
-      <span>Section {number}</span>
-      <span>{section.heading}</span>
+    <div className={styles.container} onClick={editSection}>
+      <DragHandle />
+      <div className={styles.textWrapper}>
+        <h3 className={styles.sectionNumber}>Section {number}</h3>
+        <span className={styles.sectionHeading}>{section.heading}</span>
+      </div>
     </div>
   )
 })

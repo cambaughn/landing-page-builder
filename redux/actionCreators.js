@@ -17,9 +17,17 @@ function setSections(sections) {
   }
 }
 
+function setEditingSection(editingSection) {
+  return {
+    type: 'SET_EDITING_SECTION',
+    editingSection
+  }
+}
+
 
 
 export {
   setUser,
-  setSections
+  setSections,
+  setEditingSection
 };

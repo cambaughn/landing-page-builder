@@ -1,6 +1,47 @@
 .container {
   background-color: #F2F2F0;
-  height: 50px;
+  height: 75px;
   width: 100%;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 15px;
+}
+
+.sectionNumber {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.sectionHeading {
+  color: grey;
+  font-size: 0.8em;
+}
+
+
+.dragHandle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.moreIcon {
+  margin-left: -7px;
+  margin-right: -7px;
+  color: grey;
 }
