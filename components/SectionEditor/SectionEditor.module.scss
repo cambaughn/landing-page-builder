@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+}
+
+// Top bar with section number, back arrow, and hide section button
+.sectionOptions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.backArrow {
+  margin-left: 25px;
+  margin-left: 15px;
+}
+
+.sectionNumber {
+  font-size: 28px;
+  margin-left: 25px;
+  margin-right: 45px;
+}
+
+.hideSectionButton {
+  color: #858582;
+  font-size: 14px;
+  cursor: pointer;
+}
+
