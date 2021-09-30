@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import './globals.css'
 import { Provider } from 'react-redux';
 import Head from 'next/head';
 import store from '../redux/store';
