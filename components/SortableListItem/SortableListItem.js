@@ -22,13 +22,17 @@ const SortableListItem = SortableElement(({ section, number }) => {
 
   return (
     <div className={styles.container} onClick={editSection}>
-      <DragHandle />
-      <div className={styles.textWrapper}>
-        <h3 className={styles.sectionNumber}>Section {number}</h3>
-        { section.heading.length > 0 &&
-          <span className={styles.sectionHeading}>{shortenString(section.heading, 40)}</span>
-        }
+      <div className={styles.leftSide}>
+        <DragHandle />
+        <div className={styles.textWrapper}>
+          <h3 className={styles.sectionNumber}>Section {number}</h3>
+          { section.heading.length > 0 &&
+            <span className={styles.sectionHeading}>{shortenString(section.heading, 40)}</span>
+          }
+        </div>
       </div>
+
+      <img src='/chevron-right.png' className={styles.chevron} />
     </div>
   )
 })
