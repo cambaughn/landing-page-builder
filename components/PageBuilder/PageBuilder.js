@@ -31,9 +31,8 @@ export default function PageBuilder({}) {
   }
 
   const getSectionsInfo = async () => {
-    if (course.sections.length > 0) {
+    if (course.sections) {
       let sectionsFromDatabase = await getSections(course.sections);
-      console.log('sections', sectionsFromDatabase);
       dispatch(setSections(sectionsFromDatabase));
     }
   }

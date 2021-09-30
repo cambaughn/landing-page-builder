@@ -25,7 +25,9 @@ const SortableListItem = SortableElement(({ section, number }) => {
       <DragHandle />
       <div className={styles.textWrapper}>
         <h3 className={styles.sectionNumber}>Section {number}</h3>
-        <span className={styles.sectionHeading}>{shortenString(section.heading, 40)}</span>
+        { section.heading.length > 0 &&
+          <span className={styles.sectionHeading}>{shortenString(section.heading, 40)}</span>
+        }
       </div>
     </div>
   )
