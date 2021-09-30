@@ -6,6 +6,7 @@ import Sections from '../Sections/Sections';
 import { setSections, setUser, setCourse } from '../../redux/actionCreators';
 import { getUser } from '../../util/api/user';
 import { getCourse } from '../../util/api/course';
+import { getSections } from '../../util/api/section';
 
 // Base component for the entire page
 // Handles data retrieval from the database for the user, course, and sections
@@ -23,16 +24,18 @@ export default function PageBuilder({}) {
 
   const getCourseInfo = async () => {
     // Only utilizing the first course that the user has. In future, could provide ability to switch between courses in the courses array.
-    if (!!user.id && user.courses[0]) {
+    if (user.id && user.courses[0]) {
       let courseFromDatabase = await getCourse(user.courses[0]);
-      console.log('course ', course);
       dispatch(setCourse(courseFromDatabase));
     }
   }
 
-  const getSections = async () => {
-    let sectionsForUser = [];
-    updateSections(sectionsForUser);
+  const getSectionsInfo = async () => {
+    if (course.sections.length > 0) {
+      let sectionsFromDatabase = await getSections(course.sections);
+      console.log('sections', sectionsFromDatabase);
+      dispatch(setSections(sectionsFromDatabase));
+    }
   }
 
   const updateSections = (updatedSections) => {
@@ -41,7 +44,7 @@ export default function PageBuilder({}) {
 
   useEffect(getUserInfo, []);
   useEffect(getCourseInfo, [user]);
-  // useEffect(getSections, [course]);
+  useEffect(getSectionsInfo, [course]);
 
   return (
     <div className={styles.container}>
