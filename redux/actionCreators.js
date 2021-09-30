@@ -10,6 +10,13 @@ function setUser(user) {
   }
 }
 
+function setCourse(course) {
+  return {
+    type: 'SET_COURSE',
+    course
+  }
+}
+
 function setSections(sections) {
   return {
     type: 'SET_SECTIONS',
@@ -28,6 +35,7 @@ function setEditingSection(editingSection) {
 
 export {
   setUser,
+  setCourse,
   setSections,
   setEditingSection
 };

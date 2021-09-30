@@ -1,9 +1,13 @@
-const firebase = require('firebase/app');
-require('firebase/firestore')
-const firebaseConfig = require('./firebaseConfig');
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import firebaseConfig from './firebaseConfig';
+// require('firebase/firestore')
+// const firebaseConfig = require('./firebaseConfig');
 
+
+let app;
 try {
-  firebase.default.initializeApp(firebaseConfig);
+  app = initializeApp(firebaseConfig);
 } catch(error) {
   if (!/already exists/.test(error.message)) {
     console.error('Firebase initialization error', error.stack)
@@ -11,10 +15,6 @@ try {
 }
 
 // Initialize Cloud Firestore through Firebase
-let db = firebase.default.firestore();
-
-// Disable deprecated features
-db.settings({
-});
+let db = getFirestore(app);
 
 module.exports = db;

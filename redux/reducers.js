@@ -17,6 +17,15 @@ const user = (state = {}, action) => {
   }
 }
 
+const course = (state = {}, action) => {
+  switch (action.type) {
+    case 'SET_COURSE':
+      return action.course;
+    default:
+      return state;
+  }
+}
+
 const sections = (state = mockSections, action) => {
   switch (action.type) {
     case 'SET_SECTIONS':
@@ -38,6 +47,7 @@ const editingSection = (state = null, action) => {
 
 const pageBuilderApp = combineReducers({
   user,
+  course,
   sections,
   editingSection
 });
