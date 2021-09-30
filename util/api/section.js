@@ -1,5 +1,5 @@
 import db from '../firebase/firebaseInit';
-import { doc, getDoc, setDoc } from 'firebase/firestore/lite';
+import { doc, getDoc, updateDoc } from 'firebase/firestore/lite';
 import { convertDoc } from './helpers';
 
 const getSections = async (sectionIds = []) => {
@@ -9,5 +9,11 @@ const getSections = async (sectionIds = []) => {
   return Promise.resolve(sections);
 }
 
+const updateSection = (id, updates) => {
+  const sectionRef = doc(db, `sections/${id}`);
+  return updateDoc(sectionRef, updates)
+}
 
-export { getSections }
+
+
+export { getSections, updateSection }
