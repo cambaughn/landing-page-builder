@@ -1,5 +1,5 @@
 import db from '../firebase/firebaseInit';
-import { doc, getDoc } from 'firebase/firestore/lite';
+import { doc, getDoc, setDoc } from 'firebase/firestore/lite';
 import { convertDoc } from './helpers';
 
 const getSections = async (sectionIds = []) => {
@@ -8,5 +8,6 @@ const getSections = async (sectionIds = []) => {
   const sections = sectionSnapshots.map(snapshot => convertDoc(snapshot));
   return Promise.resolve(sections);
 }
+
 
 export { getSections }
