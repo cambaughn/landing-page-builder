@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ArrowLeft } from 'react-feather';
 import { getSections, updateSection } from '../../util/api/section';
 import { setSections } from '../../redux/actionCreators';
-
+import TextInputBlock from '../TextInputBlock/TextInputBlock';
 
 export default function SectionEditor({}) {
   const editingSection = useSelector(state => state.editingSection);
@@ -50,6 +50,8 @@ export default function SectionEditor({}) {
           <span>{currentSection.hidden ? 'Show Section' : 'Hide Section'}</span>
         </div>
       </div>
+
+      <TextInputBlock label={'Section Heading'} value={currentSection.heading} handleChange={(text) => updateCurrentSection({ heading: text })} />
     </div>
   )
 }

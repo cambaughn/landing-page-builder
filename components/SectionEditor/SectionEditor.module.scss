@@ -1,13 +1,19 @@
 .container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 // Top bar with section number, back arrow, and hide section button
 .sectionOptions {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  margin-bottom: 65px;
 }
 
 .backArrow {
