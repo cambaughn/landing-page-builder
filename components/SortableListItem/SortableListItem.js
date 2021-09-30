@@ -4,7 +4,7 @@ import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { MoreVertical } from 'react-feather';
 import { useDispatch } from 'react-redux';
 import { setEditingSection } from '../../redux/actionCreators';
-
+import { shortenString } from '../../util/string';
 
 const SortableListItem = SortableElement(({ section, number }) => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const SortableListItem = SortableElement(({ section, number }) => {
       <DragHandle />
       <div className={styles.textWrapper}>
         <h3 className={styles.sectionNumber}>Section {number}</h3>
-        <span className={styles.sectionHeading}>{section.heading}</span>
+        <span className={styles.sectionHeading}>{shortenString(section.heading, 40)}</span>
       </div>
     </div>
   )
