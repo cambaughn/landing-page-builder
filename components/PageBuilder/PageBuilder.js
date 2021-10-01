@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './PageBuilder.module.scss';
 import Sidebar from '../Sidebar/Sidebar';
-import Sections from '../Sections/Sections';
+import PagePreview from '../PagePreview/PagePreview';
 import { setSections, setUser, setCourse } from '../../redux/actionCreators';
 import { getUser } from '../../util/api/user';
 import { getCourse, updateCourse } from '../../util/api/course';
@@ -49,7 +49,7 @@ export default function PageBuilder({}) {
   return (
     <div className={styles.container}>
       <Sidebar sections={sections} updateSections={updateSections} />
-      <Sections sections={sections} />
+      <PagePreview />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 .container {
   width: 320px;
   height: 100vh;
+  position: fixed;
   border: 1px solid #0D0D0C;
   background-color: white;
 
@@ -10,6 +11,7 @@
   justify-content: flex-start;
 }
 
+
 .sectionList {
   display: flex;
   flex-direction: column;
@@ -17,3 +19,4 @@
   justify-content: flex-start;
   width: 240px;
 }
+

@@ -1,0 +1,52 @@
+.container {
+  box-sizing: border-box;
+  padding: 70px;
+  border: 1px dashed #00765E;
+  border-top: none;
+}
+
+.firstSection {
+  border: 1px dashed #00765E;
+}
+
+.selected {
+  border: 3px dashed #95a8a4;
+}
+
+.sectionHeading {
+  font-size: 28px;
+  margin-bottom: 60px;
+}
+
+.itemCards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.itemCard {
+  width: 219px;
+  height: 219px;
+  margin-right: 12px;
+  border: 1px solid #858582;
+  padding-top: 24px;
+  padding-left: 12px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.itemTitle {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.itemDescription {
+  font-size: 14px;
+  color: #666664;
+}

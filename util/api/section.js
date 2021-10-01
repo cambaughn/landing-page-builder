@@ -26,10 +26,9 @@ const initSections = async () => {
       { title: 'Item name', description: 'this is an item description' },
       { title: 'Item name', description: 'this is an item description' }
     ]
-    updateSection(section.id, { items });
+    updateSection(section.id, { heading: section.heading || 'Section Heading' });
   })
 }
-
 
 
 export { getSections, updateSection }
