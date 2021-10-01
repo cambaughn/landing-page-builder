@@ -1,0 +1,45 @@
+.container {
+  background-color: #F2F2F0;
+  height: 52px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 15px;
+}
+
+.sectionNumber {
+  margin: 0;
+}
+
+.sectionHeading {
+  color: grey;
+  font-size: 0.8em;
+  margin-top: 10px;
+}
+
+
+.chevron {
+  width: 7px;
+  height: 13px;
+}

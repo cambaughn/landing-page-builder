@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './SectionItems.module.scss';
-
+import CourseItemList from '../CourseItemList/CourseItemList';
 
 export default function SectionItems({ items = [] }) {
   const [selectedItem, setSelectedItem] = useState(0);
@@ -21,14 +21,7 @@ export default function SectionItems({ items = [] }) {
         </div>
 
 
-
-        { items.map((item, index) => {
-          return (
-            <div>
-              <span>Item {index + 1}</span>
-            </div>
-          )
-        })}
+        <CourseItemList items={items} />
       </div>
     </div>
   )
