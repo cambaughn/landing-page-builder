@@ -1,13 +1,14 @@
+
+
 import React, { useState, useEffect } from 'react';
 import styles from './SortableListItem.module.scss';
 import { SortableElement } from 'react-sortable-hoc';
-import { MoreVertical } from 'react-feather';
 import { useDispatch } from 'react-redux';
 import { setEditingSection } from '../../redux/actionCreators';
 import { shortenString } from '../../util/string';
 import DragHandle from '../DragHandle/DragHandle';
 
-const SortableListItem = SortableElement(({ section, number }) => {
+const CourseItem = SortableElement(({ item, number }) => {
   const dispatch = useDispatch();
 
   const editSection = () => {
@@ -31,4 +32,4 @@ const SortableListItem = SortableElement(({ section, number }) => {
   )
 })
 
-export default SortableListItem;
+export default CourseItem;
