@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import styles from './SectionItems.module.scss';
 import CourseItemList from '../CourseItemList/CourseItemList';
+import { arrayMove } from 'react-sortable-hoc';
 
-export default function SectionItems({ items = [] }) {
+export default function SectionItems({ items = [], updateItems }) {
   const [selectedItem, setSelectedItem] = useState(0);
 
   const addNewItem = () => {
 
+  }
+
+  const onSortEnd = ({ oldIndex, newIndex }) => {
+    let updatedItems = arrayMove(items, oldIndex, newIndex);
+    updateItems(updatedItems);
   }
 
   return (
@@ -21,7 +27,7 @@ export default function SectionItems({ items = [] }) {
         </div>
 
 
-        <CourseItemList items={items} />
+        <CourseItemList items={items} selectItem={(index) => setSelectedItem(index)} selectedItem={selectedItem} onSortEnd={onSortEnd} useDragHandle={true} />
       </div>
     </div>
   )

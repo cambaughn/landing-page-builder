@@ -1,5 +1,5 @@
 .container {
-  background-color: #F2F2F0;
+  background-color: white;
   height: 52px;
   width: 100%;
   margin-bottom: 10px;
@@ -11,6 +11,12 @@
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
+  border: 1px solid grey;
+}
+
+.selected {
+  background-color: #F5FCFB;
+  border: 1px solid #009E3D;
 }
 
 .leftSide {
@@ -28,8 +34,9 @@
   margin-left: 15px;
 }
 
-.sectionNumber {
+.itemNumber {
   margin: 0;
+  font-size: 16px;
 }
 
 .sectionHeading {

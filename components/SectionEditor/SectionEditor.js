@@ -46,6 +46,10 @@ export default function SectionEditor({}) {
     let updatedSections = await getSections(sections.map(section => section.id));
     dispatch(setSections(updatedSections));
   }
+
+  const updateItems = (updatedItems) => {
+    updateCurrentSection({ items: updatedItems });
+  }
   
   useEffect(getCurrentSection, []);
 
@@ -61,7 +65,7 @@ export default function SectionEditor({}) {
 
       <TextInputBlock label={'Section Heading'} value={currentSection.heading} handleChange={(text) => updateCurrentSection({ heading: text })} />
 
-      <SectionItems items={currentSection.items} />
+      <SectionItems items={currentSection.items} updateItems={updateItems} />
     </div>
   )
 }
