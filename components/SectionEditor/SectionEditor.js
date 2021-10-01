@@ -48,6 +48,7 @@ export default function SectionEditor({}) {
   }
 
   const updateItems = (updatedItems) => {
+    console.log('updated items ', updatedItems);
     updateCurrentSection({ items: updatedItems });
   }
   
